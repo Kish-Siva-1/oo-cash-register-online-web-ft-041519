@@ -12,6 +12,7 @@ class CashRegister
     @total += (cash_given * item_quantity)
     if @items = nil
       @items = []
+      @items << item_name
     else
       @items << item_name 
     end 
