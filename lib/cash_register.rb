@@ -10,12 +10,14 @@ class CashRegister
  
   def add_item(item_name, cash_given, item_quantity = 1)
     @total += (cash_given * item_quantity)
+    binding.pry
     if @items = nil
       @items = []
       @items << item_name
     else
       @items << item_name 
     end 
+    binding.pry
   end 
   
   def apply_discount
