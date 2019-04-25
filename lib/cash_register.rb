@@ -15,7 +15,7 @@ class CashRegister
       @items = []
       @items << item_name
     else
-      item_quantity.times{@items.push(item_quantity)}
+      item_quantity.times{@items.push(item_name)}
     end 
 
   end 
