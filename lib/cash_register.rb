@@ -12,11 +12,9 @@ class CashRegister
     @total += (cash_given * item_quantity)
 
     if @items == nil
-      binding.pry
       @items = []
       @items << item_name
     else
-      binding.pry
       @items << item_name 
     end 
 
