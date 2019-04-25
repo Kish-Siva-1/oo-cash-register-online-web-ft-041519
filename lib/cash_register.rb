@@ -1,7 +1,7 @@
 require 'pry'
 
 class CashRegister
-  attr_accessor :discount, :total, :items
+  attr_accessor :discount, :total, :items, :income
   
   def initialize(discount_amount=nil)
     @total = 0 
@@ -10,6 +10,7 @@ class CashRegister
  
   def add_item(item_name, cash_given, item_quantity = 1)
     @total += (cash_given * item_quantity)
+    @income = (cash_given * item_quantity)
 
     if @items == nil
       @items = []
@@ -29,19 +30,14 @@ class CashRegister
     end 
   end
   
+  def void_last_transaction
+    @total -= @income
+  end
+  
 end 
 describe 'CashRegister' do
   let(:cash_register) { CashRegister.new }
   let(:cash_register_with_discount) { CashRegister.new(20) }
-
-  describe '#items' do
-    it 'returns an array containing all items that have been added' do
-      new_register = CashRegister.new
-      new_register.add_item("eggs", 1.99)
-      new_register.add_item("tomato", 1.76, 3)
-      expect(new_register.items).to eq(["eggs", "tomato", "tomato", "tomato"])
-    end
-  end
 
   describe '#void_last_transaction' do
     it 'subtracts the last transaction from the total' do
