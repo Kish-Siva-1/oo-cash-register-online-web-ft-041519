@@ -35,14 +35,4 @@ class CashRegister
   end
   
 end 
-describe 'CashRegister' do
-  let(:cash_register) { CashRegister.new }
-  let(:cash_register_with_discount) { CashRegister.new(20) }
 
-  describe '#void_last_transaction' do
-    it 'subtracts the last transaction from the total' do
-      cash_register.add_item("tomato", 1.76)
-      expect{cash_register.void_last_transaction}.to change{cash_register.total}.from(1.76).to(0.0)
-    end
-  end
-end
