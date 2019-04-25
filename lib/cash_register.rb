@@ -11,7 +11,7 @@ class CashRegister
   def add_item(item_name, cash_given, item_quantity = 1)
     @total += (cash_given * item_quantity)
 
-    if @items = nil
+    if @items == nil
       binding.pry
       @items = []
       @items << item_name
